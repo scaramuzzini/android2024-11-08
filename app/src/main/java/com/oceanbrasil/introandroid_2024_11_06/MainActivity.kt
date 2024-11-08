@@ -1,5 +1,6 @@
 package com.oceanbrasil.introandroid_2024_11_06
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -36,7 +37,12 @@ class MainActivity : AppCompatActivity() {
                 //Apresentar mensagem de erro
                 etNome.error = "Nome é obrigatório"
             } else {
-                tvMensagem.text = """O nome digitado foi ${etNome.text}"""
+                //tvMensagem.text = """O nome digitado foi ${etNome.text}"""
+                //Chamar a ResultadoActivity
+                val intent = Intent(this,ResultadoActivity::class.java)
+                intent.putExtra("NOME_DIGITADO", nome)
+
+                startActivity(intent)
             }
 
         }
